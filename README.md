@@ -27,4 +27,4 @@ Para comprobar si todo está bien, sólo tenemos que irnos a la raiz del directo
 
 *INTEGRACIÓN CONTINUA MEDIANTE TRAVIS*
 
-Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci.org/) con nuestras credenciales de [github](https://github.com/), habilitamos el repositorio para que travis pueda hacer test y obtenemos un log de los mismos [![Log_Travis](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819.svg?branch=master)](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819)
+Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci.org/) con nuestras credenciales de [github](https://github.com/), habilitamos el repositorio para que travis pueda hacer test y obtenemos un log de los mismos [![Build Status](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819.svg?branch=master)](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819)
