@@ -1,16 +1,9 @@
 sudo: required
 dist: bionic
 language: python
-virtualenv:
-  system_site_packages: true
 python:
-- '3.5'
+  - "3.6"
 install:
-- pip install -r requirements.txt
-script: pytest
-after_script: cd ~
-deploy:
-  provider: pypi
-  user: jomaenfe
-  password:
-    secure: Wv/Wxj7FcK4OUpZeT97PpLCsgxaiZyaGIO5F41o9MdEl3atPSe7rpAAm8nnnk5gJKk/KPRJ2MbF1+JHg/xl/MhW5y5Aus+640CBzu/YDA1zikMFuBNV8CNXodxYu0FfHZv0dBqyr7sRUf9R7g0qH3pQE9RowZ6CudCSFPuVSK+jp3pD5IO7c3+AJmKYsl/lFeTjodkz6qoroodCa0p6lEjVYOHMse3V3fuN4uSmCaI25QE4ft7fySIfuMBi6uU9PfEG22hi23qT6WkC0ZbMb93odc5+TDwde7aeIg0vB+021tpO5jh284WRxdvz7jp4kr1TYqflfKCF8ZfY2x9c9c6XsvKNjKw8NTRBRlO1a1VoyFpJUG3HucQ5vy3ycs7Da34cRPVIRQ4xPWovRw6rlfnWtR/zgE+Di4KkcYMoR9lAK+BvyAmib7wNitdEcZLjQrMEA2gFinlcr92oThJRStH5pYtMdIqWlggplEa5kv4ngHuuA042BHuC/lZTi1Qe6pNu6vR+KMy80ob7xcv6/gaeDVsBO5HSrexihKcSrqkRoFMoOdEkunWn7Ppv0BeTE04WZiGmrLUZBs3MT8s+D7qm1IEM5bbxx7uXH7Ww/oOjeNVAhPuoxbYNJGooSlh4Icfp+NTNkYOPFb7n210lpq8CzHaPtUGqG5600vBXoPz0=
+  - pip install -r requirements.txt
+script: 
+  - pytest 
