@@ -4,7 +4,7 @@
 
 ### Nombre del proyecto: Planificador diario
 
-[![Build Status](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819.svg?branch=master)]
+[![Build Status](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819.svg?branch=master)](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819)
 
 ### Autor: Jose Manuel Enríquez Fernández
 
