@@ -1,13 +1,16 @@
-## Planificador Diario - Proyecto de IV
+# PLANIFICADOR DIARIO
 
-Este repositorio se va a utilizar para subir el desarrollo de un proyecto para la asignatura de Infraestructura Virtual. EL proyecto trata de un servicio web, que voy a desarrollar en Python y que su principal utilidad será recordarnos que debemos hacer cada día para cumplir nuestros objetivos.
+## Repositorio para el proyecto de infraestructura virtual
 
-#### Herramientas que voy a usar
+### Nombre del proyecto: Planificador diario
 
-- Como lenguaje de programación voy a usar [python](https://www.python.org/). He decidido usar este idioma porque es uno de los que más al día están y no lo conozco a penas, por lo que me interesa trabajar con el.
-- El Framework que quiero utilizar es [hug](http://www.hug.rest/). Uso este framework ya que tiene una buena integración con el idioma de programación que voy a usar y porque en el hackaton me llamó bastante la atención.
-- La base de datos que vamos a usar es [MariaDB](https://mariadb.org/). He elegido esta base de datos porque es menos pesada que MySql y porque ya la he usado en más de una ocasión.
+[![Build Status](https://travis-ci.org/jomaenfe/Planificador_diario-IV1819.svg?branch=master)]
 
+### Autor: Jose Manuel Enríquez Fernández
+
+#### Descripción:
+
+EL proyecto trata de un servicio web, que voy a desarrollar en Python y que su principal utilidad será recordarnos que debemos hacer cada día para cumplir nuestros objetivos.
 
 #### Desarrollo del proyecto:
 
