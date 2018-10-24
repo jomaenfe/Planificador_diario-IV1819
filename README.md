@@ -10,7 +10,7 @@
 
 #### Descripción:
 
-EL proyecto trata de un servicio web, que voy a desarrollar en Python y que su principal utilidad será recordarnos que debemos hacer cada día para cumplir nuestros objetivos.
+EL proyecto trata sobre un servicio web, que voy a desarrollar en Python y que su principal utilidad será recordarnos que debemos hacer cada día para cumplir nuestros objetivos.
 
 #### Desarrollo del proyecto:
 
