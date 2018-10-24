@@ -3,7 +3,7 @@ from pytest import fixture
 
 @fixture
 def op():
-    from travistest.planificador_diario import Planificador_diario
+    from planificador.planificador_diario import Planificador_diario
     return Planificador_diario("Irme al bar", datetime.date.today(), datetime.time(19,00), datetime.time(22,00))
 
 def test_modificarPlan(op):
