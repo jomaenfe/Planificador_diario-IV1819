@@ -2,8 +2,14 @@ import hug
 import json
 from src.planificador_diario import Planificador_diario
 
+estadoSimple = {
+    "status": "OK"
+}
 
-
+@hug.get('/')
+def comprobarEstado():
+        return estadoSimple
+        
 
 @hug.get('/status')
 def status():
