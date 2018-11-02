@@ -29,3 +29,9 @@ Para comprobar si todo está bien, sólo tenemos que irnos a la raíz del direct
 *INTEGRACIÓN CONTINUA MEDIANTE TRAVIS*
 
 Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci.org/) con nuestras credenciales de [github](https://github.com/), habilitamos el repositorio para que travis pueda hacer test y obtenemos un log de los mismos donde podremos ver si lo has pasado o no.
+
+*DESPLIEGUE EN HEROKU*
+
+- Despliegue en [heroku](https://planificadordiario.herokuapp.com/)
+- Json [adicional](https://planificadordiario.herokuapp.com/status) en el despligue
+- [Documentación](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue.md) del despliegue en heroku
