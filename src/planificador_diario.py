@@ -2,11 +2,23 @@ import datetime
 
 class Planificador_diario:
 
-    def __init__(self, plan, fecha, hora_inicio, hora_fin):
+    @classmethod
+    def inicializarClaseArgs(self, plan, fecha, hora_inicio, hora_fin):
         self.plan = plan
         self.fecha = fecha
         self.hora_inicio = hora_inicio
         self.hora_fin = hora_fin
+
+    @classmethod
+    def inicializarClase(self):
+        self.plan = None
+        self.fecha = None
+        self.hora_inicio = None
+        self.hora_fin = None
+
+    def status(self):
+        """ Funcion que se encarga de evaluar el estado de la clase """
+        return True
 
     def modificarPlan(self,plan):
         self.plan = plan
@@ -33,6 +45,10 @@ class Planificador_diario:
         print("En el dia",self.fecha)
         print(self.hora_inicio)
         print(self.hora_fin)
+
+
+
+
 
 
 
