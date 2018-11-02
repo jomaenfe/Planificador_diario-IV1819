@@ -4,7 +4,9 @@ from pytest import fixture
 @fixture
 def op():
     from src.planificador_diario import Planificador_diario
-    return Planificador_diario("Irme al bar", datetime.date.today(), datetime.time(19,00), datetime.time(22,00))
+    planificador = Planificador_diario()
+    planificador.inicializarClaseArgs("Irme al bar", datetime.date.today(), datetime.time(19,00), datetime.time(22,00))
+    return planificador
 
 def test_modificarPlan(op):
     assert op.modificarPlan("hola") == "hola"
