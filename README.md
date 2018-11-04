@@ -16,7 +16,7 @@ EL proyecto trata sobre un servicio web, que voy a desarrollar en Python y que s
 
  *DESCRIPCIÓN DE LA CLASE*
 
-Se ha creado una clase planificador_diario, la cual se encuentra alojada en `/travistes/planificador_diario.py`. Esta clase se encarga de crear una tarea en un día, y con un rango horario en concreto. Se trabaja con los atributos "tarea","fecha", "hora_inicio", "hora_fin".
+Se ha creado una clase planificador_diario, la cual se encuentra alojada en `/src/planificador_diario.py`. Esta clase se encarga de crear una tarea en un día, y con un rango horario en concreto. Se trabaja con los atributos "tarea","fecha", "hora_inicio", "hora_fin".
 
 Para testear las funciones de la clase, he creado el archivo test_planificador.py que se encuentra en la ruta `/test/test_planificador.py`.
 
