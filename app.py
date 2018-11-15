@@ -22,7 +22,7 @@ def status():
     value = instancia.status()
 
     if value==True:
-        with open('status.json') as j:
+        with open('planEjemplo.json') as j:
             respuesta = json.load(j)
 
 
