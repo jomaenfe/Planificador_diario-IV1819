@@ -40,6 +40,6 @@ Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci
 
 Contenedor: [https://planificadordiariodocker.herokuapp.com/status](https://planificadordiariodocker.herokuapp.com/status)
 
-Contenedor desplegado en docker-hub: [https://hub.docker.com/r/jomaenfe/planificador_diario-iv1819/](https://hub.docker.com/r/jomaenfe/planificador_diario-iv1819/)
+Contenedor desplegado en docker-hub: [Planificador Docker-hub](https://hub.docker.com/r/jomaenfe/planificador_diario-iv1819/)
 
 Documentación sobre el despliegue de docker y demás información: en la carpeta [/docs](https://github.com/jomaenfe/Planificador_diario-IV1819/tree/master/docs)
