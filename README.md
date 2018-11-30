@@ -42,4 +42,9 @@ Contenedor: [https://planificadordiariodocker.herokuapp.com/status](https://plan
 
 Contenedor desplegado en docker-hub: [Planificador Docker-hub](https://hub.docker.com/r/jomaenfe/planificador_diario-iv1819/)
 
-Documentación sobre el despliegue de docker y demás información: en la carpeta [/docs](https://github.com/jomaenfe/Planificador_diario-IV1819/tree/master/docs)
+Documentación sobre la creación de nuestro contenedor [aqui](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/documentacion_docker.md)
+
+Documentación sobre el despliegue en docker-hub [aqui](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/documentacion_dockerhub.md)
+
+Documentación sobre el despliegue en heroku [aqui](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue_docker_heroku.md)
+
