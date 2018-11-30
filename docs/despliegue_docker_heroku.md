@@ -16,7 +16,7 @@ run:
   web: gunicorn app:__hug_wsgi__ --log-file -
 ```
 
-Este archivo contiene instrucciones para que cada vez que hagamos un push a nuestro repostorio y pase los test, heroku haga un build de nuestro contenedor en sus registros y lo ejecute. Para hacer el build se le indica nuestro archivo Dockerfile y para que lo ejecute sin problemas añadimos `run web: gunicorn app:__hug_wsgi__ --log-file -`. Esto último sustiye la última línea del Dokcerfile, "CMD", por la que le estamos dando aqui y que se ejecute este comando.
+Este archivo contiene instrucciones para que cada vez que hagamos un push a nuestro repostorio y pase los test, heroku haga un build de nuestro contenedor en sus registros y lo ejecute. Para hacer el build se le indica nuestro archivo Dockerfile y para que lo ejecute sin problemas añadimos `run web: gunicorn app:__hug_wsgi__ --log-file -`. Esto último sustituye la última línea del Dokcerfile, "CMD", por la que le estamos dando aqui y que se ejecute este comando.
 
 Una vez tenemos hecho esto, añadimos a nuestro repositorio el archivo. A continuación, tenemos que establecer la pila de nuestra aplicación para establecer que es un contenedor lo que vamos a subir. Para ello, ejecutamos `heroku stack:set container --app planificadordiariodocker`. 
 
