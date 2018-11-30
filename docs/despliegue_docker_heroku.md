@@ -1,42 +1,23 @@
 ## Documentación para desplegar un contenedor Docker en Heroku.
 
-Para realizar el despliegue de un contenedor de Docker en heroku he utilizado la documentación [oficial de heroku](https://devcenter.heroku.com/articles/container-registry-and-runtime). 
+Para realizar el despliegue de un contenedor de Docker en heroku he utilizado la documentación [oficial de heroku](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml). 
 
-En primer lugar, lo que tenemos que hacer es bajarnos el CLI de heroku, pero como ya tengo un despliegue hecho en su web ya lo tengo instalado por lo que obvio este paso.
+En primer lugar, lo que tenemos que hacer es bajarnos el CLI de heroku y tener creada la aplicación en la web. Como ya tengo un despliegue hecho obviamos los pasos para instalar el CLI y para crear una aplicación.
 
-En segundo lugar debemos iniciar sesión en heroku, en el registro de contenedores. Para ello tecleamos el comando `heroku container:login`. Esto nos debería dar una salida como la que se ve en la siguiente imagen.
+En segundo lugar, en mi caso, como tengo la aplicación desplegada de varias formas en heroku tengo que cambiar el repositorio a la aplicación con la que voy a trabajar por lo que ejecuto `heroku git:remote -a planificadordiariodocker` y lo cambio.
 
-![Log_HerokuDocker](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/logueo_heroku_container.png?raw=true)
-
-Una vez nos hemos logueado en el registro nos aseguramos de tener la versión de *Dockerfile* adecuada para que funcione en heroku. En mi caso, es la siguiente: 
+En tercer lugar, empezamos con la construcción del archivo [heroku.yml](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/heroku.yml).
 
 ```
-# Use an official Python runtime as a parent image
-FROM python:3.6-slim
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Run app.py when the container launches
-CMD gunicorn app:__hug_wsgi__ --log-file -
-
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: gunicorn app:__hug_wsgi__ --log-file -
 ```
 
-Cuando nos hayamos asegurado de que es la correcta procedemos a hacer el **build** del contenedor, para lo que en heroku se utiliza `heroku container:push web --app <nombre de la app>`. Este comando nos dará una salida igual que la que nos da el comando `docker build -t <nombre del contenedor .`. En la siguiente imagen podemos ver la salida.
+Este archivo contiene instrucciones para que cada vez que hagamos un push a nuestro repostorio y pase los test, heroku haga un build de nuestro contenedor en sus registros y lo ejecute. Para hacer el build se le indica nuestro archivo Dockerfile y para que lo ejecute sin problemas añadimos `run web: gunicorn app:__hug_wsgi__ --log-file -`. Esto último sustiye la última línea del Dokcerfile, "CMD", por la que le estamos dando aqui y que se ejecute este comando.
 
-![Build_heroku](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/heroku_container_push.png?raw=true)
+Una vez tenemos hecho esto, añadimos a nuestro repositorio el archivo. A continuación, tenemos que establecer la pila de nuestra aplicación para establecer que es un contenedor lo que vamos a subir. Para ello, ejecutamos `heroku stack:set container --app planificadordiariodocker`. 
 
-Cuando termine de hacer el build ya solo nos quedará lanzar nuestro contenedor en los registros de heroku para que empiece a funcionar y que podamos ver los resultados. Para ello utilizamos el comando `heroku container:release web --app <nombre de la app` y a continuación ya solo nos quedará ejecutar la aplicación desde la web o terminal para ver que funciona correctamente. En las siguientes imágenes se puede ver que en mi caso está todo correcto.
-
-![Lanzando_contenedor](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/heroku_container_release.png?raw=true)
-
-![Probando:_contenedor](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/probando_heroku_docker.png?raw=true)
+Por último, tan solo nos queda subir al repositorio de heroku los cambios de nuestra aplicación y ya estará todo hecho. Para ello, debemos ejecutar `git push heroku master`. La salida por terminal debeŕia construir el contenedor y subir los archivos a los registros de forma automática. Cuando haya terminado, al entrar al [enlace](https://planificadordiariodocker.herokuapp.com/status) que nos proporciona heroku, nuestra aplicación deberá haberse actualizado. 
