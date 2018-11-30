@@ -1,17 +1,22 @@
-# Use an official Python runtime as a parent image
+# Usamos la imagen de python slim para que ocupe menos espacio
 FROM python:3.6-slim
 
-# Set the working directory to /app
+# Establecemos la carpeta /app para que docker trabaje en ella
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copiamos los archivos necesarios de nuestro proyecto a la carpeta /app
+COPY ./src/ /app/src
+COPY ./requirements.txt /app
+COPY ./planEjemplo.json /app
+COPY ./app.py /app
 
-# Install any needed packages specified in requirements.txt
+
+# Instalamos las dependencias necesarias para el funcionamiento de nuestro proyecto
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Make port 80 available to the world outside this container
+# Hacemos que el puerto 80 sea accesible
 EXPOSE 80
 
-# Run app.py when the container launches
+# Comando que se va a ejecutar en el contenedor
 CMD ["gunicorn", "-b", "0.0.0.0:80", "app:__hug_wsgi__"]
+
