@@ -5,7 +5,7 @@ from src.planificador_diario import Planificador_diario
 estadoSimple = {
     "status": "OK",
     "ejemplo": {
-            "ruta":"/nada",
+            "ruta":"/",
             "valor":"{ 'dia': '09', 'mes':'11', 'anio':'2018', 'plan': 'celebrar cumpleanios', 'hora_inicio': '21', 'minuto_inicio':'00', 'hora_fin':'23', 'minuto_fin':'30' }"
     } 
 
