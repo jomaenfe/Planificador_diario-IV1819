@@ -161,5 +161,5 @@ def Detener():
 
 Este archivo tan solo sirve, para actualizar la aplicación en caso de que se cambie el código. Donde lo que hace es borrar lo que tiene, volver a descargarse el repositorio e instalar las dependencias. Iniciar el servicio, arrancar el servidor gunicorn y, para el servidor gunicorn. Para para el servidor gunicorn, he tenido que buscar un script que lo que hace es matar el servicio que tienen un id asociado a gunicorn. Este script lo he cogido de [aqui](http://cheng.logdown.com/posts/2015/04/17/better-way-to-run).
 
-Para acceder y modificar el estado de la aplicación ejecutamos `ab -f despliegue/fabfile.py -H vagrant@planificador-diario-iv1819.westeurope.cloudapp.azure.com [orden]`, donde en orden debemos poner "Actualizar", "Iniciar" o "Detener" según se necesite.
+Para acceder y modificar el estado de la aplicación ejecutamos `ab -f despliegue/fabfile.py -H vagrant@planificador-diario-iv1819.westeurope.cloudapp.azure.com [orden]`, donde en orden debemos poner "Actualizar", "Iniciar" o "Detener" según se necesite. Y con esto podremos manejar la máquina a distancia y sin tener que acceder manualmente a ella.
 
