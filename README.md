@@ -48,3 +48,8 @@ Documentación sobre el despliegue en docker-hub [aqui](https://github.com/jomae
 
 Documentación sobre el despliegue en heroku [aqui](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue_docker_heroku.md)
 
+*DESPLIEGUE EN AZURE*
+
+Despliegue final: planificador-diario-iv1819.westeurope.cloudapp.azure.com
+
+Documentación sobre el despligue final en la que incluyo, fabric, ansible y vagrant: [documentación](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue-azure.md)
