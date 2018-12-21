@@ -1,6 +1,7 @@
 # Fabfile to:
 #    - Actualizar
 #    - Iniciar
+#    - Detener
 
 # Este import puede dar problemas si estamos usando python 3.x, para que no los de
 # debemos instalar pip3 y como módulo instalar fabric3
@@ -10,7 +11,7 @@ from fabric.api import *
 # y como tercer paso instalar los requerimientos por si han cambiado.
 def Actualizar():
 
-    run('sudo rm -rf planificador-diario')
+    run('sudo rm -rf Planificador_diario-IV1819')
 
     run('git clone https://github.com/jomaenfe/Planificador_diario-IV1819.git')  
 
@@ -24,4 +25,4 @@ def Iniciar():
 
 # Para detener el servicio web usamos esta función.
 def Detener():
-    run('cd Planificador_diario-IV1819/ && sudo sh parar.sh')
+    run('cd Planificador_diario-IV1819/despliegue/ && sudo sh script_detener.sh')
