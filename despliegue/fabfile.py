@@ -12,7 +12,7 @@ env.hosts = [
      'planificador-diario-iv1819.westeurope.cloudapp.azure.com',
 ]
 
-# Defino el nombre de usuario para que se conecte a la MV.
+# Defino el nombre de usuario para que se conecte a la máquina virtual.
 env.user = 'vagrant'
 
 
