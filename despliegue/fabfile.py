@@ -28,7 +28,7 @@ def Actualizar():
 # Para iniciar el servicio web usamos esta función.
 def Iniciar():
 
-    run('cd Planificador_diario-IV1819/ && sudo sh iniciar_gunicorn.sh')
+    run('cd Planificador_diario-IV1819/despliegue && sudo sh iniciar_gunicorn.sh')
      #run('cd Planificador_diario-IV1819/ && sudo gunicorn app:__hug_wsgi__ -b 0.0.0.0:80 &')
 
 # Para detener el servicio web usamos esta función.
