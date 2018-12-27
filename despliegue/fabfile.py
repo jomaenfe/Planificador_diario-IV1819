@@ -7,10 +7,12 @@
 # debemos instalar pip3 y como módulo instalar fabric3
 from fabric.api import *
 
+# Aqui van los host a los que se va a conectar para desplegar, o hacer cambios.
 env.hosts = [
      'planificador-diario-iv1819.westeurope.cloudapp.azure.com',
 ]
 
+# Defino el nombre de usuario para que se conecte a la MV.
 env.user = 'vagrant'
 
 
