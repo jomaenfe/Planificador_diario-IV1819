@@ -13,7 +13,6 @@ env.hosts = [
 
 env.user = 'vagrant'
 
-env.always_use_pty = False
 
 # En el caso de tener que actualizar el código, el primer paso sería borrar lo que tenemos, en segundo paso volver a clonar la app
 # y como tercer paso instalar los requerimientos por si han cambiado.
@@ -28,9 +27,9 @@ def Actualizar():
 # Para iniciar el servicio web usamos esta función.
 def Iniciar():
 
-    run('cd Planificador_diario-IV1819/despliegue && sudo sh iniciar_gunicorn.sh')
+    run('cd Planificador_diario-IV1819/ && sudo sh iniciar_gunicorn.sh')
      #run('cd Planificador_diario-IV1819/ && sudo gunicorn app:__hug_wsgi__ -b 0.0.0.0:80 &')
 
 # Para detener el servicio web usamos esta función.
 def Detener():
-    run('cd Planificador_diario-IV1819/despliegue/ && sudo sh script_detener.sh')
+    run('cd Planificador_diario-IV1819/scripts/ && sudo sh script_detener.sh')
