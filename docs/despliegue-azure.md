@@ -4,7 +4,7 @@ Para desplegar una aplicación en un IaaS, lo que hacemos nosotros es desplegar 
 
 ### Aprovisionamiento de la máquina virtual. Ansible.
 
-Para este apartado, he usado [ansible](https://www.ansible.com/). Para poder crear el archivo `playbook.yml` de ansible, he seguido la [este](https://docs.ansible.com/ansible/latest/modules/command_module.html) apartado de la documentación oficial. El archivo ha quedado tal que así:
+Para este apartado, he usado [ansible](https://www.ansible.com/). Para poder crear el archivo `playbook.yml` de ansible, he seguido [este](https://docs.ansible.com/ansible/latest/modules/command_module.html) apartado de la documentación oficial. El archivo ha quedado tal que así:
 
 ```
 
