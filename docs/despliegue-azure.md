@@ -4,7 +4,7 @@ Para desplegar una aplicación en un IaaS, lo que hacemos nosotros es desplegar 
 
 ### Aprovisionamiento de la máquina virtual. Ansible.
 
-Para este apartado, he usado [ansible](https://www.ansible.com/). Para poder crear el archivo `playbook.yml` de ansible, he seguido la [este](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html) apartado de la documentación oficial. El archivo ha quedado tal que así:
+Para este apartado, he usado [ansible](https://www.ansible.com/). Para poder crear el archivo `playbook.yml` de ansible, he seguido la [este](https://docs.ansible.com/ansible/latest/modules/command_module.html) apartado de la documentación oficial. El archivo ha quedado tal que así:
 
 ```
 
@@ -121,10 +121,12 @@ Una vez hemos exportado las variables, tan solo nos quedaría ejecutar `vagrant 
 
 ![Imagen_4](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/aprovisionamientovagrant.png?raw=true)
 
+Imagen 4.
+
 
 ### Desplegar la aplicación. Fabfile.
 
-Para desplegar la aplicación desde dentro de la máquina web, hemos usado [Fabric](http://docs.fabfile.org/en/1.14/index.html), y he seguido la [documentación](http://docs.fabfile.org/en/1.14/tutorial.html) para usarla. Como lo voy a usar para lanzar la aplicación desde dentro de la máquina virtual, el archivo que he tenido que hacer es bastante simple.
+Para desplegar la aplicación desde dentro de la máquina web, hemos usado [Fabric](http://docs.fabfile.org/en/1.14/index.html), y he seguido la [documentación](http://docs.fabfile.org/en/2.4/api/connection.html#fabric.connection.Connection.run) y el tutorial de [digital ocean](https://www.digitalocean.com/community/tutorials/how-to-use-fabric-to-automate-administration-tasks-and-deployments) para usarla. Como lo voy a usar para lanzar la aplicación desde dentro de la máquina virtual, el archivo que he tenido que hacer es bastante simple.
 
 ```
 
@@ -136,6 +138,13 @@ Para desplegar la aplicación desde dentro de la máquina web, hemos usado [Fabr
 # Este import puede dar problemas si estamos usando python 3.x, para que no los de
 # debemos instalar pip3 y como módulo instalar fabric3
 from fabric.api import *
+
+env.hosts = [
+     'planificador-diario-iv1819.westeurope.cloudapp.azure.com',
+]
+
+env.user = 'vagrant'
+
 
 # En el caso de tener que actualizar el código, el primer paso sería borrar lo que tenemos, en segundo paso volver a clonar la app
 # y como tercer paso instalar los requerimientos por si han cambiado.
@@ -150,16 +159,22 @@ def Actualizar():
 # Para iniciar el servicio web usamos esta función.
 def Iniciar():
 
-    
-     run('cd Planificador_diario-IV1819/ && sudo gunicorn app:__hug_wsgi__ -b 0.0.0.0:80')
+    run('cd Planificador_diario-IV1819/ && sudo sh iniciar_gunicorn.sh')
+     #run('cd Planificador_diario-IV1819/ && sudo gunicorn app:__hug_wsgi__ -b 0.0.0.0:80 &')
 
 # Para detener el servicio web usamos esta función.
 def Detener():
-    run('cd Planificador_diario-IV1819/despliegue/ && sudo sh script_detener.sh')
+    run('cd Planificador_diario-IV1819/scripts/ && sudo sh script_detener.sh')
 
 ```
 
-Este archivo tan solo sirve, para actualizar la aplicación en caso de que se cambie el código. Donde lo que hace es borrar lo que tiene, volver a descargarse el repositorio e instalar las dependencias. Iniciar el servicio, arrancar el servidor gunicorn y, para el servidor gunicorn. Para para el servidor gunicorn, he tenido que buscar un script que lo que hace es matar el servicio que tienen un id asociado a gunicorn. Este script lo he cogido de [aqui](http://cheng.logdown.com/posts/2015/04/17/better-way-to-run).
+Este archivo tan solo sirve, para actualizar la aplicación en caso de que se cambie el código. Donde lo que hace es borrar lo que tiene, volver a descargarse el repositorio e instalar las dependencias. Iniciar el servicio, arrancar el servidor gunicorn y, parar el servidor gunicorn. Para para el servidor gunicorn, he tenido que buscar un script que lo que hace es matar el servicio que tienen un id asociado a gunicorn. Este script lo he cogido de [aqui](http://cheng.logdown.com/posts/2015/04/17/better-way-to-run).
 
-Para acceder y modificar el estado de la aplicación ejecutamos `ab -f despliegue/fabfile.py -H vagrant@planificador-diario-iv1819.westeurope.cloudapp.azure.com [orden]`, donde en orden debemos poner "Actualizar", "Iniciar" o "Detener" según se necesite. Y con esto podremos manejar la máquina a distancia y sin tener que acceder manualmente a ella.
+También, como es referenciado en la sección de [preguntas frecuentes](http://www.fabfile.org/faq.html) de fabfile, en la parte en la que explica porque no puedes ejecutar un programa en segundo plano. He tenido que crear un [script](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/iniciar_gunicorn.sh) en la raiz de mi proyecto que se encarga de arrancar el servidor para que funcione en segundo plano.
+
+Para acceder y modificar el estado de la aplicación ejecutamos `fab <orden>`, donde en orden debemos poner "Actualizar", "Iniciar" o "Detener" según se necesite. Y con esto podremos manejar la máquina a distancia y sin tener que acceder manualmente a ella. Como ejemplo, en las siguientes capturas voy a iniciar y a detener el servicio con fab.
+
+![Iniciar_Servicio](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/Iniciofabfile.png?raw=true)
+
+![Detener_Servicio](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/img/detenerfab.png?raw=true)
 
