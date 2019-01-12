@@ -1,29 +1,47 @@
-
-- hosts: all
-  sudo: yes
-  remote_user: jomaenfe
-
+- hosts: all       # Especifico que este archivo es valido para todos los hosts.
+  become: true     # Permito entrar en modo superusuario para las siguientes tareas.
+  
+  # Tareas que voy a ejecutar para provisionar la máquina.
   tasks:
+
   - name: Añadir repo de python
-    apt_repository: repo=ppa:deadsnakes/ppa state=present
+    apt_repository: # Añado un repositorio con la versión 3.6 de python.
+        repo: ppa:jonathonf/python-3.6 #Donde se encuentra el repositorio.
+        state: present  # Verifica si está o no presente en el sistema, si no lo está lo añade y si lo está no hace nada.
 
   - name: Actualizar sistema
-    command: sudo apt-get update
+    apt: # Para trabajar con paquetes, como en Ubuntu.
+        update_cache: yes # Esto ejecuta "apt-get update".
 
+    # Comprueba si está instalado git, si no lo está lo instala y si lo está lo ignora.
   - name: Instalar Git
-    command: sudo apt-get install -y git
-  
+    apt: 
+        name: git 
+        state: present
+        
+    # Comprueba si está instalado python3.6, si no lo está lo instala y si lo está lo ignora.
   - name: Instalar python version 3.6
-    apt: pkg=python3.6 state=present
+    apt: 
+        name: python3.6 
+        state: present
   
-  - name: Cambiando la versión de python
-    command: sudo ln -sfn /usr/bin/python3.6 /usr/bin/python
+    # Cambio el path de la versión de python porque yo uso python3.
+  - name: Cambiar version
+    command: ln -sfn /usr/bin/python3.6 /usr/bin/python    
 
+    #Instala pip3.
   - name: Instalar pip3
-    command: sudo apt-get -y install python3-pip
+    become: true
+    apt: 
+      pkg: python3-pip 
+      state: latest # Instala o comprueba que el paquete está instalado en su última versión.
 
+    # Clono mi repositorio de github en la máquina.
   - name: Clonar GitHub
-    git: repo=https://github.com/jomaenfe/Planificador_diario-IV1819.git  dest=planificador-diario/ force=yes
+    git: 
+        repo: https://github.com/jomaenfe/Planificador_diario-IV1819.git  
+        dest: planificador-diario/ # Path de destino donde se clonará el repositorio.
 
+    # Instalo dependencias para mi proyecto.
   - name: Instalar requirements
-    command: pip3 install -r planificador-diario/requirements.txt
+    command: pip3 install -r planificador-diario/requirements.txt 
