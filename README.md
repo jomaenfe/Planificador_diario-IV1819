@@ -22,9 +22,13 @@ Para testear las funciones de la clase, he creado el archivo test_planificador.p
 
  *INSTALACIÓN Y TESTEO*
 
-Para su instalación lo primero que debemos de hacer es clonar este repositorio usando la orden: ` git clone https://github.com/jomaenfe/Planificador_diario-IV1819.git `. Cuando tengamos el repositorio clonado, tan solo tendremos que instalar "pytest" con la orden  `pip install pytest`. 
+Antes de nada, tenemos que tener cubierta una dependencia básica para el proyecto. Este proyecto utiliza python3 para ejecutarse y Ubuntu como sistema operativo. Por lo que debemos tener Ubuntu instalado e instalar [python3](https://docs.python-guide.org/starting/install3/linux/) en nuestro sistema. También es recomendable instalar [git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart).
 
-Para comprobar si todo está bien, sólo tenemos que irnos a la raíz del directorio y ejecutar `pytest` desde la terminal. Esta orden nos proporcionará una salida y ahí se verá el resultado del test.
+Una vez hemos cumplido los *prerequisitos* clonamos el repositorio en nuestra máquina usando la siguiente orden: ` git clone https://github.com/jomaenfe/Planificador_diario-IV1819.git `. 
+
+Cuando tengamos el repositorio en nuestra máquina, tan solo debemos ejecutar `sudo sh iniciar_gunicorn.sh` para que se inicie el servidor. 
+
+Para comprobar si todo está bien, sólo tenemos que irnos a la raíz del directorio y ejecutar `pytest` desde la terminal. Esta orden nos proporcionará una salida y ahí se verá el resultado del test sobre la clase de la app.
 
 *INTEGRACIÓN CONTINUA MEDIANTE TRAVIS*
 
@@ -50,6 +54,6 @@ Documentación sobre el despliegue en heroku [aqui](https://github.com/jomaenfe/
 
 *DESPLIEGUE EN AZURE*
 
-Despliegue final: planificador-diario-iv1819.westeurope.cloudapp.azure.com
+Despliegue final: planificador-diario-1819.westeurope.cloudapp.azure.com
 
 Documentación sobre el despligue final en la que incluyo, fabric, ansible y vagrant: [documentación](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue-azure.md)
