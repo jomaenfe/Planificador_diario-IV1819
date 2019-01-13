@@ -39,10 +39,10 @@ def Actualizar():
 def Iniciar():
 
     with cd('Planificador_diario-IV1819/'): # Con witd cd, lo que estmamos haciendo es mantener la sesión en esa carpeta para ejecutar después gunicorn.
-     run('sudo sh iniciar_gunicorn.sh')
+     sudo('sh iniciar_gunicorn.sh')
 
 # Para detener el servicio web usamos esta función.
 def Detener():
     
-    with cd('Planificador_diario-IV1819/scripts/'): # Exactamente igual que antes, solo que para detener gunicorn.
-     run('sudo sh script_detener.sh')
+    with cd('Planificador_diario-IV1819/scripts'): # Exactamente igual que antes, solo que para detener gunicorn.
+     sudo('sh detener.sh')
