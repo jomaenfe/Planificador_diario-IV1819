@@ -38,7 +38,7 @@ Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci
 
 *DESPLIEGUE EN HEROKU*
 
-- Despliegue en [heroku](https://planificadordiario.herokuapp.com/)
+- Despliegue en [heroku](https://planificadordiario.herokuapp.com/status)
 - Json [adicional](https://planificadordiario.herokuapp.com/status) en el despligue
 - [Documentación](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue.md) del despliegue en heroku
 
