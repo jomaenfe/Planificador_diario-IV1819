@@ -26,9 +26,11 @@ Antes de nada, tenemos que tener cubierta una dependencia básica para el proyec
 
 Una vez hemos cumplido los *prerequisitos* clonamos el repositorio en nuestra máquina usando la siguiente orden: ` git clone https://github.com/jomaenfe/Planificador_diario-IV1819.git `. 
 
-Cuando tengamos el repositorio en nuestra máquina, tan solo debemos ejecutar `sudo sh iniciar_gunicorn.sh` para que se inicie el servidor. 
+Cuando tengamos el repositorio en nuestra máquina, tan solo debemos ejecutar `pip3 install -r requirements.txt ` desde la carpeta raiz del proyecto para que se instalen las dependencias.
 
-Para comprobar si todo está bien, sólo tenemos que irnos a la raíz del directorio y ejecutar `pytest` desde la terminal. Esta orden nos proporcionará una salida y ahí se verá el resultado del test sobre la clase de la app.
+Después de instalar las dependencias ya estará todo listo para ejecutarlo, por lo que ejecutamos `sudo sh iniciar_gunicorn.sh` para que se inicie el servidor y ya estaría funcionando la aplicación en local. 
+
+Para ejecutar los test, sólo tenemos que irnos a la raíz del directorio y ejecutar `pytest` desde la terminal. Esta orden nos proporcionará una salida y ahí se verá el resultado del test sobre la clase de la app.
 
 *INTEGRACIÓN CONTINUA MEDIANTE TRAVIS*
 
