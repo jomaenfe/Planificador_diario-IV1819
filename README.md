@@ -38,13 +38,13 @@ Lo primero que tenemos que hacer es darnos de alta en [travis](https://travis-ci
 
 *DESPLIEGUE EN HEROKU*
 
-- Despliegue en [heroku](https://planificadordiario.herokuapp.com/status)
+- Despliegue en [heroku](https://planificadordiario.herokuapp.com/)
 - Json [adicional](https://planificadordiario.herokuapp.com/status) en el despligue
 - [Documentación](https://github.com/jomaenfe/Planificador_diario-IV1819/blob/master/docs/despliegue.md) del despliegue en heroku
 
 *CONTENEDORES DOCKER*
 
-Contenedor: [https://planificadordiariodocker.herokuapp.com/status](https://planificadordiariodocker.herokuapp.com/status)
+Contenedor: [https://planificadordiariodocker.herokuapp.com/](https://planificadordiariodocker.herokuapp.com/status)
 
 Contenedor desplegado en docker-hub: [Planificador Docker-hub](https://hub.docker.com/r/jomaenfe/planificador_diario-iv1819/)
 
